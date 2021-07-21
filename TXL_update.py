@@ -3,6 +3,7 @@ from urllib.request import Request, urlopen
 import requests
 import json
 
+
 # TXL Coin
 req = Request('https://nomics.com/assets/txl2-tixl-token-erc-20')
 page = urlopen(req).read()
