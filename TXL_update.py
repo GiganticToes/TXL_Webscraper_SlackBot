@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup as soup
 from urllib.request import Request, urlopen
 import requests
 import json
-
+import keys
 
 # TXL Coin
 req = Request('https://nomics.com/assets/txl2-tixl-token-erc-20')
@@ -17,8 +17,7 @@ pChange = page_soup.find("span", {
 
 pChange = float(pChange.replace('%', ''))
 
-
-slack_url = 'https://hooks.slack.com/services/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'
+slack_url = keys.SLACK_BOT_ADDRESS
 payload = {
     "text": "TXL Price is: " + price + "\nChange of: " + str(pChange)+"%"}
 requests.post(slack_url, data=json.dumps(payload))
